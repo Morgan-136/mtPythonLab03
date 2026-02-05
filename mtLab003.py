@@ -31,7 +31,7 @@ message = get_message()
 
 # initialize_chat function creation
 def initialize_chat():
-    user = username()
+    user = get_username()
     group = get_group()
     node = lc.get_peer_node(user) # to connect as a peer node
     lc.join_group(node, group)
@@ -42,7 +42,6 @@ def initialize_chat():
 # start_chat function creation
 def start_chat():
     channel = initialize_chat()
-
     while True:
         try: #tries to catch error
             msg = get_message()
