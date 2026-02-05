@@ -48,21 +48,38 @@ Now that you have user inputs ready, you’ll move to handling peer-to-peer comm
 * For each function in the [lab_chat.py](lab_chat.py) file add the following to your **README.md** file:
   1. Full Function Header, and indicate the function name with a comment.
   ```python
-  # Example
+  # Example:
   def chat_task(ctx, pipe, n, group):  # function name is chat_task
+  # function headers not listed in example:
+  def get_peer_node(username):# function name is get_peer_node and it collects the node
+    username # The username of the user that is entered in get_username function
+  def join_group(node, group): # function name is join_group and it joins a node to a group
+    node #I am not sure, but is it the user's peer node?
+    group #The group that the user wants to join
+  def get_channel(node, group): # function name is get_channel, and it gets the chat channel 
+    node #I am still not sure, but is it the user's peer node?
+    group #I think this is the group that the user wants to join from the join_group function
   ```
   2. List all parameters and what you think they are. Put "UNSURE" if you don't have a guess.
   ```shell
-  # Example
+  # Example:
   ctx: This is a ZeroMQ Connection Context
   pipe: This is a communications pipe polled by ZeroMQ for messages.
   n: This is the peer to peer node my chat app is connected as
   group: This is the peer chat group I wanted to join
+  # parameters not listed in example:
+  node: I am not sure, but is it the users peer node?
+  group: I think this is the group that the user wants to join from the join_group function
+  username: The username of the user that is entered in get_username function
   ```
   3. Note if the function **returns** anything. If it does, note what you believe it returns, and make a final note about what you believe the function may do.
   ```shell
   # Example
   The chat_task method does not return anything, it appears to be the send/recieve manager.
+  # Function returns not in the example:
+  The get_peer_node function returns n which is the Pyre node
+  The join_group function does not return anything, it seems to be a 
+  The get_channel function returns zhelper.zthread_fork(ctx, chat_task, n=node, group=group) but I do not know what that means? I think it is a chat channel?
   ```
 
 ## Combining the Functions to Create the Peer-to-Peer Chat
